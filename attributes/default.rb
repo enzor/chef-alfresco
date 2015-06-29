@@ -20,8 +20,10 @@ default['alfresco']['version'] = "5.0.d"
 default['alfresco']['home'] = "/usr/share/tomcat"
 default['alfresco']['user'] = "tomcat"
 
-# Patch alfresco web.xml to disable SSL restrictions and use secureComms=none
-default['alfresco']['enable.web.xml.nossl.patch'] = true
+# Enable SSL
+# If not, patch alfresco web.xml to disable SSL restrictions and use secureComms=none
+default['alfresco']['enable.ssl'] = true
+default['alfresco']['enable.solr.ssl'] = true
 
 #Generates alfresco-global.properties using all node['alfresco']['properties'] key/value attributes
 default['alfresco']['generate.global.properties'] = true

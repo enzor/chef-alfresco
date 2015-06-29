@@ -25,11 +25,13 @@ suites:
       "name": "img-basic-test",
       "hostname": "alfresco-allinone-test",
       "nginx" : {
-        "proxy_set_header_port" : "8800"
+        # Set to 8800 if enable.ssl=false
+        "proxy_set_header_port" : "8843"
       },
       "alfresco" : {
         "properties" : {
-           "aos.port" : "8800"
+            # Set to 8800 if enable.ssl=false
+            "aos.port" : "8843"
         }
         # To enable Enterprise version; remember to add databag too!
         # "version" : "5.0.1.1"

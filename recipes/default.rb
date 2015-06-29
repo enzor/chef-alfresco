@@ -20,6 +20,10 @@ include_recipe "alfresco::_analytics-attributes"
 include_recipe "alfresco::_haproxy-attributes"
 include_recipe "alfresco::_nginx-attributes"
 
+if node['alfresco']['enable.ssl']
+  include_recipe "alfresco::_ssl-attributes"
+end
+
 # If there are no components that need artifact deployment,
 # don't invoke apply_amps
 apply_amps = false
@@ -132,7 +136,7 @@ end
 # TODO - This should go... as soon as Alfresco Community NOSSL war is shipped
 # Patching web.xml to configure Alf-Solr comms to none (instead of https)
 #
-if node['alfresco']['components'].include? 'tomcat' and node['alfresco']['enable.web.xml.nossl.patch']
+if node['alfresco']['components'].include? 'tomcat' and node['alfresco']['enable.ssl'] == false
   cookbook_file "/usr/local/bin/nossl-patch.sh" do
     source "nossl-patch.sh"
     mode "0755"

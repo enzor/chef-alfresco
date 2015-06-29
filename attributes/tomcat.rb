@@ -9,6 +9,12 @@ default['tomcat']['restart_action'] = :nothing
 default["tomcat"]["deploy_manager_apps"] = false
 default["tomcat"]["use_security_manager"] = false
 
+# SSL configuration
+default['tomcat']['keystore_file'] = 'ssl.keystore'
+default['tomcat']['keystore_type'] = 'jceks'
+default['tomcat']['truststore_type'] = 'jceks'
+default['tomcat']['certificate_dn'] = "cn=#{node['alfresco']['default_hostname']}"
+
 # https://github.com/abrt/abrt/wiki/ABRT-Project
 # http://tomcat.apache.org/download-native.cgi
 # http://tomcat.apache.org/tomcat-7.0-doc/apr.html
@@ -68,13 +74,3 @@ default['alfresco']['solr_tomcat_instance']['jmx_port'] = 40020
 
 solr_memory = "#{(node['memory']['total'].to_i * 0.2 ).floor / 1024}m"
 default['alfresco']['solr_tomcat_instance']['java_options'] = "-Xmx#{solr_memory} -XX:MaxPermSize=128m -XX:+UseCompressedOops -XX:+UseParallelOldGC -XX:+DisableExplicitGC -XX:CodeCacheMinimumFreeSpace=8m -XX:ReservedCodeCacheSize=32m -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true -Dsun.net.inetaddr.ttl=0 -Dsun.net.inetaddr.negative.ttl=0 -Dcom.sun.management.jmxremote.authenticate=true -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.access.file=/etc/tomcat/jmxremote.access -Dcom.sun.management.jmxremote.password.file=/etc/tomcat/jmxremote.password -Djava.awt.headless=true"
-
-# Tomcat SSL configuration - not needed for now,
-# since SSL is offloaded to nginx/haproxy
-#
-# default['alfresco']['repo_tomcat_instance']['ajp_port'] = 8079
-# default['alfresco']['repo_tomcat_instance']['ssl_port'] = 8433
-# default['alfresco']['share_tomcat_instance']['ajp_port'] = 8089
-# default['alfresco']['share_tomcat_instance']['ssl_port'] = 8443
-# default['alfresco']['solr_tomcat_instance']['ajp_port'] = 8099
-# default['alfresco']['solr_tomcat_instance']['ssl_port'] = 8453
