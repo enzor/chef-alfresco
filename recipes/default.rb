@@ -1,5 +1,6 @@
 # Setting Tomcat version
 # Needs to be done before invoking "tomcat::_attributes"
+# TODO - try using node.default or node.set
 node.override["tomcat"]["base_version"] = 7
 
 # Invoke attribute recipes; if defined as attributes/*.rb files,
@@ -7,6 +8,7 @@ node.override["tomcat"]["base_version"] = 7
 # would not take the right value, if a calling cookbook changes (ie default['alfresco']['version'])
 #
 include_recipe "tomcat::_attributes"
+include_recipe "alfresco::_common-attributes"
 include_recipe "alfresco::_tomcat-attributes"
 include_recipe "alfresco::_alfrescoproperties-attributes"
 include_recipe "alfresco::_repo-attributes"
@@ -17,8 +19,6 @@ include_recipe "alfresco::_googledocs-attributes"
 include_recipe "alfresco::_aos-attributes"
 include_recipe "alfresco::_media-attributes"
 include_recipe "alfresco::_analytics-attributes"
-include_recipe "alfresco::_haproxy-attributes"
-include_recipe "alfresco::_nginx-attributes"
 
 if node['alfresco']['enable.ssl']
   include_recipe "alfresco::_ssl-attributes"

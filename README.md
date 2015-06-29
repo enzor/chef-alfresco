@@ -36,6 +36,19 @@ If you use analytics and/or media-management you can also access:
 
 Access to the admin console is via http://localhost:9000/alfresco/ and then Alfresco Administration Console.
 
+#### Tweaking
+Please [review CPU/memory configurations](Vagrantfile.erb) of chef-alfresco and adapt them to your workstation specs; hereby the default values:
+```
+c.vm.provider "virtualbox" do |v|
+  v.memory = 4096
+  v.cpus = 2
+end
+```
+
+#### Caching
+
+It is strongly advised to setup a local cached proxy, so that artifacts will be only downloaded once, in case of multiple runs; [here's how I've set it up on OSX](https://gist.github.com/maoo/3262589c9db989c6e948)
+
 Chef Usage
 ---
 
