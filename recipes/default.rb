@@ -20,10 +20,6 @@ include_recipe "alfresco::_aos-attributes"
 include_recipe "alfresco::_media-attributes"
 include_recipe "alfresco::_analytics-attributes"
 
-if node['alfresco']['enable.ssl']
-  include_recipe "alfresco::_ssl-attributes"
-end
-
 # If there are no components that need artifact deployment,
 # don't invoke apply_amps
 apply_amps = false
