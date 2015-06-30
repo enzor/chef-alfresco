@@ -5,9 +5,10 @@ Hereby the list of packages, cookbooks, YUM (or source/binary) repositories and 
 
 | Package Name | Chef Cookbook | Repository | Version | Version in Code |
 | ------------ |:-------------:| ----------:| -------:| ---------------:|
+| Alfresco artifacts | [chef-alfresco::_repo-attributes](https://github.com/Alfresco/chef-alfresco/blob/master/recipes/_repo-attributes.rb) _solr-attributes, _share-attributes,   |  [Alfresco Nexus](https://artifacts.alfresco.com/nexus/#nexus-search;gav~org.alfresco~~5.0.d~war~)  | 5.0.d | [_common-attributes.rb](https://github.com/Alfresco/chef-alfresco/blob/master/recipes/_common-attributes.rb) |
+| Apache Tomcat | [maoo/tomcat](https://github.com/maoo/tomcat) | [centos](http://mirrorlist.centos.org) | latest (7.0.54-2.el7_1) | no versions specified in code |
 | Nginx | [nginx](https://github.com/miketheman/nginx) | [centosnginx](http://nginx.org/packages/centosnginx) | latest (1.8.0) | no versions specified in code |
 | Oracle JDK | [java](https://github.com/agileorbit-cookbooks/java) | [oracle.com](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) | 8u45-b14 | [default.rb](https://github.com/Alfresco/chef-alfresco/blob/master/attributes/default.rb) |
-| Apache Tomcat | [maoo/tomcat](https://github.com/maoo/tomcat) | [centos](http://mirrorlist.centos.org) | latest (7.0.54-2.el7_1) | no versions specified in code |
 | Tomcat Catalina JMX | [chef-alfresco::_tomcat-attributes](https://github.com/Alfresco/chef-alfresco/blob/master/recipes/_tomcat-attributes.rb) |  [maven.org](http://search.maven.org/#artifactdetails%7Corg.apache.tomcat%7Ctomcat-catalina-jmx-remote%7C7.0.54%7Cjar) | 7.0.54 | [_tomcat-attributes.rb](https://github.com/Alfresco/chef-alfresco/blob/master/recipes/_tomcat-attributes.rb) |
 | Tomcat native | [chef-alfresco::tomcat](https://github.com/Alfresco/chef-alfresco/blob/master/recipes/tomcat.rb) | [epel](https://mirrors.fedoraproject.org/metalink?repo=epel-7) | latest (1.1.30-1.el7) | no versions specified in code |
 | Tomcat APR | [chef-alfresco::tomcat](https://github.com/Alfresco/chef-alfresco/blob/master/recipes/tomcat.rb) | [centos](http://mirrorlist.centos.org) | latest (1.4.8-3.el7) | no versions specified in code |
